@@ -2,6 +2,12 @@ package src.p03.c01;
 
 import java.util.Hashtable;
 
+/**
+ * Clase que permite crear una instancia de un parque
+ * 
+ * @author Gustavo Gutierrez Martin - ggm1007@alu.ubu.es
+ * @since 1.8
+ */
 public class Parque implements IParque {
 
 	private static final String ENTRADA = "Entrada";
@@ -17,10 +23,15 @@ public class Parque implements IParque {
 		this.contadorSalidasPuerta = new Hashtable<String, Integer>();
 	}
 
+	/**
+	 * Representa cada una de las entradas de una persona a un parque
+	 * 
+	 * @throws InterruptedException
+	 */
 	@Override
 	public synchronized void entrarAlParque(final String puerta) throws InterruptedException {
 		comprobarAntesDeEntrar();
-		// Aumentamos el contador total y el individual
+		// Aumentamos el contador total y el individual de las entradas
 		this.contadorPersonasTotales++;
 		this.contadorEntradasPuerta.put(puerta, this.contadorEntradasPuerta.getOrDefault(puerta, 0) + 1);
 		// Imprimimos el estado del parque
@@ -29,10 +40,15 @@ public class Parque implements IParque {
 		notify();
 	}
 
+	/**
+	 * Representa cada una de las salidas de una persona a un parque
+	 * 
+	 * @throws InterruptedException
+	 */
 	@Override
 	public synchronized void salirDelParque(final String puerta) throws InterruptedException {
 		comprobarAntesDeSalir();
-		// Aumentamos el contador total y el individual
+		// Aumentamos el contador total y el individual de las salidas
 		this.contadorPersonasTotales--;
 		this.contadorSalidasPuerta.put(puerta, this.contadorSalidasPuerta.getOrDefault(puerta, 0) + 1);
 		// Imprimimos el estado del parque
@@ -61,7 +77,7 @@ public class Parque implements IParque {
 		return this.contadorSalidasPuerta.values().stream().reduce(Integer::sum).orElse(0);
 	}
 
-	protected void checkInvariante() {
+	private void checkInvariante() {
 		assert sumarEntradasPuerta() - sumarSalidasPuerta() == this.contadorPersonasTotales
 				: "INV: La sumarEntradasPuerta de contadores de las puertas debe ser igual al valor del contador del parte";
 		assert this.contadorPersonasTotales <= CAPACIDAD : "INV: Superada la capacidad máxima del parque.";
