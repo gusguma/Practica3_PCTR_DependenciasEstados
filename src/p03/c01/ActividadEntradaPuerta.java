@@ -21,7 +21,7 @@ public class ActividadEntradaPuerta implements Runnable {
 		for (int i = 0; i < NUMENTRADAS; i++) {
 			try {
 				this.parque.entrarAlParque(this.puerta);
-				TimeUnit.MILLISECONDS.sleep(new Random().nextInt(5) * 1000);
+				TimeUnit.MILLISECONDS.sleep(new Random().nextInt(30) * 100);
 			} catch (final InterruptedException e) {
 				Logger.getGlobal().log(Level.INFO, "Entrada interrumpida");
 				Logger.getGlobal().log(Level.INFO, e.toString());
