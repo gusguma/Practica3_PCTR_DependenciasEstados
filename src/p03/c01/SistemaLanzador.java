@@ -6,12 +6,18 @@ public class SistemaLanzador {
 
 	public static void main(final String[] args) {
 
+		Integer numeroDePuertas = PUERTAS;
+
+		if (args != null && args.length > 0) {
+			numeroDePuertas = Integer.parseInt(args[0]);
+		}
+
 		final IParque parque = new Parque();
 		char letra_puerta = 'A';
 
 		System.out.println("¡Parque abierto!");
 
-		for (int i = 0; i < PUERTAS; i++) {
+		for (int i = 0; i < numeroDePuertas; i++) {
 
 			final String puerta = "" + ((letra_puerta++));
 
