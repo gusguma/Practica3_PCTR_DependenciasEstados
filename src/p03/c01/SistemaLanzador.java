@@ -1,5 +1,12 @@
 package src.p03.c01;
 
+/**
+ * Clase que permite lanzar la aplicación de gestión de entradas y salidas de un
+ * parque
+ * 
+ * @author Gustavo Gutierrez Martin - ggm1007@alu.ubu.es
+ * @since 1.8
+ */
 public class SistemaLanzador {
 
 	private static final int PUERTAS = 4;
@@ -7,7 +14,7 @@ public class SistemaLanzador {
 	public static void main(final String[] args) {
 
 		Integer numeroDePuertas = PUERTAS;
-
+		// permite establecer el número de puertas mediante argumentos de entrada
 		if (args != null && args.length > 0) {
 			numeroDePuertas = Integer.parseInt(args[0]);
 		}
