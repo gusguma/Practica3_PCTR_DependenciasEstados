@@ -5,6 +5,12 @@ import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+/**
+ * Clase que permite crear hilos por cada una de las salidas por cada puerta
+ * 
+ * @author Gustavo Gutierrez Martin - ggm1007@alu.ubu.es
+ * @since 1.8
+ */
 public class ActividadSalidaPuerta implements Runnable {
 
 	private static final int NUMSALIDAS = 20;
