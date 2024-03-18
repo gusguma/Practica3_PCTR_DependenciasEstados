@@ -79,7 +79,7 @@ public class Parque implements IParque {
 
 	private void checkInvariante() {
 		assert sumarEntradasPuerta() - sumarSalidasPuerta() == this.contadorPersonasTotales
-				: "INV: La sumarEntradasPuerta de contadores de las puertas debe ser igual al valor del contador del parte";
+				: "INV: La diferencia entre las entradas y las salidas de las puertas debe ser igual al numero total de personas en el parque";
 		assert this.contadorPersonasTotales <= CAPACIDAD : "INV: Superada la capacidad máxima del parque.";
 		assert this.contadorPersonasTotales >= 0 : "INV: No puede haber mas salidas que entradas en el parque";
 
